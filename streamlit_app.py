@@ -1,3 +1,5 @@
+!pip install --target=/app/lib pandasql
+
 import streamlit as st
 import pandas as pd
 import pandasql as psql
