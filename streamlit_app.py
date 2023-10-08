@@ -9,8 +9,8 @@ class ReadCSV():
         return pd.read_csv(self.csv_name)
 
 data_sources = [
-    ReadCSV("data_source_1.csv"),
-    ReadCSV("data_source_2.csv"),
+    ReadCSV("data_1.csv"),
+    ReadCSV("data_2.csv"),
     # Add more data sources as needed
 ]
 
