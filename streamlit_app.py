@@ -35,7 +35,7 @@ if selected_sources:
             
 # Add a button to load the selected data sources
 if st.button("Load Selected Data"):
-    selected_data = {source.csv: source.df() for source in data_sources if source.csv_name in selected_sources}
+    selected_data = {source.csv_name: source.df() for source in data_sources if source.csv_name in selected_sources}
     if sql_query:
         # Execute SQL query using pandasql
         try:
