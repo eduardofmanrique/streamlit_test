@@ -1,8 +1,31 @@
 import pandas as pd
 import streamlit as st
 
-df1 = pd.read_csv("data_1.csv")
-df2 = pd.read_csv("data_2.csv")
+# Define your Streamlit app
+import streamlit as st
+import pandas as pd
 
-st.write(df1)
-st.write(df2)
+class ReadCSV():
+    def __init__(self, csv_name):
+        self.csv_name = csv_name
+
+    def df(self):
+        return pd.read_csv(self.csv_name)
+
+data_sources = [
+    ReadCSV("data_1.csv"),
+    ReadCSV("data_2.csv"),
+    # Add more data sources as needed
+]
+
+def select_data_sources():
+    st.title("Select Data Sources")
+    selected_sources = st.multiselect(
+        "Select Data Sources",
+        options=[source.csv_name for source in data_sources]
+    )
+    if selected_sources:
+        st.write("Selected Data Sources:")
+        for source in data_sources:
+            if source.csv_name in selected_sources:
+                st.write(source.csv_name)
