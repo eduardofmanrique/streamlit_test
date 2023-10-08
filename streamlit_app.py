@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import pandasql as psql
 
 class ReadCSV():
     def __init__(self, csv_name):
