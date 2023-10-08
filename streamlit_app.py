@@ -29,3 +29,5 @@ def select_data_sources():
         for source in data_sources:
             if source.csv_name in selected_sources:
                 st.write(source.csv_name)
+                
+select_data_sources()
