@@ -18,16 +18,15 @@ data_sources = [
     # Add more data sources as needed
 ]
 
-def select_data_sources():
-    st.title("Select Data Sources")
-    selected_sources = st.multiselect(
-        "Select Data Sources",
-        options=[source.csv_name for source in data_sources]
-    )
-    if selected_sources:
-        st.write("Selected Data Sources:")
-        for source in data_sources:
-            if source.csv_name in selected_sources:
-                st.write(source.csv_name)
-                
-select_data_sources()
+
+st.title("Select Data Sources")
+selected_sources = st.multiselect(
+    "Select Data Sources",
+    options=[source.csv_name for source in data_sources]
+)
+if selected_sources:
+    st.write("Selected Data Sources:")
+    for source in data_sources:
+        if source.csv_name in selected_sources:
+            st.write(source.csv_name)
+
