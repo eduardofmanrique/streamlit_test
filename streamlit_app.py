@@ -26,21 +26,24 @@ if selected_sources:
     for source in data_sources:
         if source.csv_name in selected_sources:
             st.write(source.csv_name)
-
-# Add a button to load the selected data sources
-if st.button("Load Selected Data"):
-    selected_data = [source.df() for source in data_sources if source.csv_name in selected_sources]
-
+            
     # Input field for SQL query
     st.subheader("Enter SQL Query")
     sql_query = st.text_area("SQL Query", value="", height=150)
-    
+
+
+            
+# Add a button to load the selected data sources
+if st.button("Load Selected Data"):
+    selected_data = {source.csv: source.df() for source in data_sources if source.csv_name in selected_sources}
     if sql_query:
         # Execute SQL query using pandasql
         try:
-            result_df = psql.sqldf(sql_query, locals())
+            result_df = psql.sqldf(sql_query, selected_data)
             st.write("Result of SQL Query:")
             st.write(result_df)
         except Exception as e:
             st.error(f"Error executing SQL query: {str(e)}")
+
+
 
