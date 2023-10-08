@@ -44,6 +44,7 @@ if st.button("Load Selected Data"):
             st.write(result_df)
         except Exception as e:
             st.error(f"Error executing SQL query: {str(e)}")
+            st.write(selected_data)
 
 
 
