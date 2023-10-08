@@ -1,8 +1,5 @@
-!pip install pandasql
-
 import streamlit as st
 import pandas as pd
-import pandasql as psql
 
 class ReadCSV():
     def __init__(self, csv_name):
@@ -33,15 +30,3 @@ if selected_sources:
 if st.button("Load Selected Data"):
     selected_data = [source.df() for source in data_sources if source.csv_name in selected_sources]
     
-    # Input field for SQL query
-    st.subheader("Enter SQL Query")
-    sql_query = st.text_area("SQL Query", value="", height=150)
-    
-    if sql_query:
-        # Execute SQL query using pandasql
-        try:
-            result_df = psql.sqldf(sql_query, locals())
-            st.write("Result of SQL Query:")
-            st.write(result_df)
-        except Exception as e:
-            st.error(f"Error executing SQL query: {str(e)}")
