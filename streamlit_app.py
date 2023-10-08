@@ -7,13 +7,11 @@ class ReadCSV():
 
     def df(self):
         return pd.read_csv(self.csv_name)
-
 data_sources = [
     ReadCSV("data_source_1.csv"),
     ReadCSV("data_source_2.csv"),
     # Add more data sources as needed
 ]
-
 
 st.title("Select Data Sources")
 selected_sources = st.multiselect(
@@ -36,8 +34,4 @@ if st.button("Load Selected Data"):
     if selected_data:
         combined_data = pd.concat(selected_data)
         st.write("Combined Data:")
-        st.write(combined_data)    st.write("Selected Data Sources:")
-for source in data_sources:
-    if source.csv_name in selected_sources:
-        st.write(source.df())
-
+        st.write(combined_data)
