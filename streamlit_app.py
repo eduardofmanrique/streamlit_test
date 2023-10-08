@@ -1,11 +1,8 @@
 import pandas as pd
 import streamlit as st
 
-df = pd.DataFrame(
-  {
-    "A": [1,2,3],
-    "B": [4,5,6]
-  }
-)
+df1 = pd.read_csv("data_1.csv")
+df2 = pd.read_csv("data_2.csv")
 
-st.write(df)
+st.write(df1)
+st.write(df2)
